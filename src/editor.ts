@@ -1,6 +1,7 @@
 import { basicSetup } from 'codemirror';
 import { EditorView, placeholder } from '@codemirror/view';
 import type { Extension } from '@codemirror/state';
+import { linter, type LintSource } from '@codemirror/lint';
 import { debounce } from './utils';
 
 interface EditorConfig {
@@ -12,6 +13,7 @@ interface EditorConfig {
     stringify: (obj: object) => string;
   };
   onUpdate: (editor: Editor, obj: object) => void;
+  lintSource?: LintSource;
 }
 
 export class Editor {
@@ -52,6 +54,7 @@ export class Editor {
         placeholder(config.placeholder || 'Input something'),
         onUpdateHandler,
         ...config.extensions,
+        linter(config.lintSource || null),
       ],
     });
   }

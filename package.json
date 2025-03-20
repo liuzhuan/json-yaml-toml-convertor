@@ -15,6 +15,7 @@
   "dependencies": {
     "@codemirror/lang-json": "^6.0.1",
     "@codemirror/lang-yaml": "^6.1.2",
+    "@codemirror/lint": "^6.8.4",
     "@codemirror/state": "^6.5.2",
     "@codemirror/view": "^6.36.4",
     "@std/toml": "npm:@jsr/std__toml@^1.0.2",

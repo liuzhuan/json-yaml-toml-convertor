@@ -4,6 +4,7 @@ import { json } from '@codemirror/lang-json';
 import { yaml } from '@codemirror/lang-yaml';
 import * as YAML from '@std/yaml';
 import * as TOML from '@std/toml';
+import { JsonLinter, YamlLinter, TomlLinter } from './linters';
 
 function onUpdate(editor: Editor, obj: object) {
   const allEditors = [jsonEditor, yamlEditor, tomlEditor];
@@ -18,6 +19,7 @@ function onUpdate(editor: Editor, obj: object) {
 const jsonEditor = new Editor({
   el: document.querySelector('#json-box') as HTMLElement,
   placeholder: 'Input JSON',
+  lintSource: JsonLinter,
   extensions: [json()],
   processor: {
     parse: (str: string) => JSON.parse(str),
@@ -29,6 +31,7 @@ const jsonEditor = new Editor({
 const yamlEditor = new Editor({
   el: document.querySelector('#yaml-box') as HTMLElement,
   placeholder: 'Input YAML',
+  lintSource: YamlLinter,
   extensions: [yaml()],
   processor: {
     parse: (str: string) => YAML.parse(str) as any,
@@ -40,6 +43,7 @@ const yamlEditor = new Editor({
 const tomlEditor = new Editor({
   el: document.querySelector('#toml-box') as HTMLElement,
   placeholder: 'Input TOML',
+  lintSource: TomlLinter,
   extensions: [],
   processor: {
     parse: (str: string) => TOML.parse(str) as any,
