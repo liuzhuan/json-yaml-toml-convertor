@@ -1,0 +1,26 @@
+{
+  "name": "json-yaml-toml-convertor",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "~5.7.2",
+    "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "@codemirror/lang-json": "^6.0.1",
+    "@codemirror/lang-yaml": "^6.1.2",
+    "@codemirror/state": "^6.5.2",
+    "@codemirror/view": "^6.36.4",
+    "@std/toml": "npm:@jsr/std__toml@^1.0.2",
+    "@std/yaml": "npm:@jsr/std__yaml@^1.0.5",
+    "@tailwindcss/vite": "^4.0.14",
+    "codemirror": "^6.0.1",
+    "tailwindcss": "^4.0.14"
+  }
+}
