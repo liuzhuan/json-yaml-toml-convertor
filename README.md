@@ -2,6 +2,8 @@
 
 A simple convertor between JSON, YAML and TOML.
 
+![screenshot](./screenshot.png)
+
 Thanks to the following open source projects:
 
 - [CodeMirror](https://codemirror.net/) 6 Code Editor
