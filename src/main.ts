@@ -5,8 +5,18 @@ import { yaml } from '@codemirror/lang-yaml';
 import * as YAML from '@std/yaml';
 import * as TOML from '@std/toml';
 import { JsonLinter, YamlLinter, TomlLinter } from './linters';
+import * as cache from './cache';
+
+function updateAllEditors(obj: object) {
+  const allEditors = [jsonEditor, yamlEditor, tomlEditor];
+  for (const e of allEditors) {
+    e.update(obj);
+  }
+}
 
 function onUpdate(editor: Editor, obj: object) {
+  cache.write(obj);
+
   const allEditors = [jsonEditor, yamlEditor, tomlEditor];
 
   for (const e of allEditors) {
@@ -51,3 +61,5 @@ const tomlEditor = new Editor({
   },
   onUpdate,
 });
+
+updateAllEditors(cache.read());
